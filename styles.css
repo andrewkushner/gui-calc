@@ -1,0 +1,57 @@
+.container {
+    width: 500px;
+    height: 800px;
+}
+
+.displayScr {
+    width: 200px;
+    background-color: black;
+    border: black;
+    color: white;
+    padding: 20px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    border-radius: 2px;
+}
+
+.bt1 {
+    background-color: grey;
+    border: black;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 2px;
+}
+
+.bt2 {
+    background-color: orange;
+    border: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 2px;
+}
+
+.bt3 {
+    background-color: black;
+    border: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 2px;
+}
