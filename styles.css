@@ -74,7 +74,7 @@ button {
 }
   
 button:hover {
-    background-color: #eaeaea;
+    background-color: #eaeaea68;
 }
   
 .operator {
