@@ -1,6 +1,26 @@
+let initValue = 0;
+let firstInp = 0;
+let secondInp = 0;
+let result = 0;
+let histValue = '';
+
+function calculate(){
+
+}
+
+function add(){
+    result = firstInp + secondInp;
+    firstInp = result;
+    secondInp = 0;
+    return result;
+}
 
 
-
+$(document).ready(function() {
+    initValue = document.getElementsByClassName("calculator-screen")[0].value;
+    histValue += String(initValue);
+    console.log(histValue);
+});
 
 
 
