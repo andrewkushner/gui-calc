@@ -10,32 +10,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Odin Project: Graphical Calculator</title>
 </head>
-<body>
-    <!-- Create a button that allows the user to input size of grid -->
-    <!-- <center><button class="bt">AC</button><button id="rbgButton">Random Color</button><button onclick=clearGrid();>Clear</button></center> -->
-    <!-- <div id="container"></div> -->
-    <br><br>
-    <center><button class="displayScr">0</button></center>
-    <center><button class="bt1">AC</button><button class="bt1">C</button><button class="bt1">%</button><button class="bt2">&divide</button></center>
-    <center><button class="bt3">7</button><button class="bt3">8</button><button class="bt3">9</button><button class="bt2">*</button></center>
-    <center><button class="bt3">4</button><button class="bt3">5</button><button class="bt3">6</button><button class="bt2">-</button></center>
-    <center><button class="bt3">1</button><button class="bt3">2</button><button class="bt3">3</button><button class="bt2">+</button></center>
-    <center><button class="bt3">0</button><button class="bt3">&pm;</button><button class="bt3">.</button><button class="bt2">=</button></center>
-    <br>
-    <script>
-    // // Used to determine if the button is toggled ON or OFF for random color generation
-    // let rbgToggle = 0;
-    // let rbgButton = document.getElementById("rbgButton");
 
-    // rbgButton.addEventListener("click", () => {
-    //     rbgButton.classList.toggle('clicked');
-    //     if (rbgToggle == 0){
-    //         rbgToggle = 1;
-    //     }
-    //     else{
-    //         rbgToggle = 0;
-    //     }
-    // })
-</script>
+<body>
+    <div class="instructions">
+        <p>Calculations are performed in order on number pairs entered.</p>
+        <p>This calculator does not use PEMDAS/BEDMAS</p>
+        <br>
+        <p>Ex. 2 + 2 * 5 / 10 = 2 - This Calculator </p>
+        <p>Ex. 2 + 2 * 5 / 10 = 3 - PEMDAS/BEDMAS</p>
+    </div>
+    <div class="calculator">
+        <div class="calcDisplay">
+            <input type="text" class="calculator-history" value="" disabled/>
+            <input type="text" class="calculator-screen" value="0" disabled/>
+        </div>
+        <div class="calcButtons">
+            <button type="button" class="allclear" value="AC">AC</button>
+            <button type="button" class="clear" value="C">C</button>
+            <button type="button" class="modulo" value="remainder">%</button>
+            <button type="button" class="operator" value="/">&divide</button>
+
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+            <button type="button" class="operator" value="*">&times;</button>
+        
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+            <button type="button" class="operator" value="-">-</button>
+        
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button>
+            <button type="button" class="operator" value="+">+</button>
+        
+            <button type="button" value="0">0</button>
+            <button type="button" class="decimal" value=".">.</button>
+            <button type="button" class="int-sign" value="plusmin">&pm;</button>
+            <button type="button" class="equal-sign" value="=">=</button>
+        </div>
+    </div>  
+<script></script>
 </body>
 </html>
