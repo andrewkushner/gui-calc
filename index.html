@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="./styles.css"></style>
-    <!-- This is required for certain usability within JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="./script.js"></script>
+    <script src="./script.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,34 +20,34 @@
     </div>
     <div class="calculator">
         <div class="calcDisplay">
-            <input type="text" class="calculator-history" value="" disabled/>
-            <input type="text" class="calculator-screen" value="0" disabled/>
+            <div data-calc-previous class="calculator-previous"></div>
+            <div data-calc-current class="calculator-current"></div>
         </div>
         <div class="calcButtons">
-            <button type="button" class="allclear" value="AC">AC</button>
-            <button type="button" class="clear" value="C">C</button>
-            <button type="button" class="modulo" value="remainder">%</button>
-            <button type="button" class="operator" value="/">&divide</button>
+            <button data-allclear class="allclear" value="AC">AC</button>
+            <button data-delete class="clear" value="C">DEL</button>
+            <button data-remainder class="modulo" value="remainder">%</button>
+            <button data-operation class="operator" value="/">&divide</button>
 
-            <button type="button" value="7">7</button>
-            <button type="button" value="8">8</button>
-            <button type="button" value="9">9</button>
-            <button type="button" class="operator" value="*">&times;</button>
+            <button data-number value="7">7</button>
+            <button data-number value="8">8</button>
+            <button data-number value="9">9</button>
+            <button data-operation class="operator" value="*">&times;</button>
         
-            <button type="button" value="4">4</button>
-            <button type="button" value="5">5</button>
-            <button type="button" value="6">6</button>
-            <button type="button" class="operator" value="-">-</button>
+            <button data-number value="4">4</button>
+            <button data-number value="5">5</button>
+            <button data-number value="6">6</button>
+            <button data-operation class="operator" value="-">-</button>
         
-            <button type="button" value="1">1</button>
-            <button type="button" value="2">2</button>
-            <button type="button" value="3">3</button>
-            <button type="button" class="operator" value="+">+</button>
+            <button data-number value="1">1</button>
+            <button data-number value="2">2</button>
+            <button data-number value="3">3</button>
+            <button data-operation class="operator" value="+">+</button>
         
-            <button type="button" value="0">0</button>
-            <button type="button" class="decimal" value=".">.</button>
-            <button type="button" class="int-sign" value="plusmin">&pm;</button>
-            <button type="button" class="equal-sign" value="=">=</button>
+            <button data-number value="0">0</button>
+            <button data-number class="decimal" value=".">.</button>
+            <button data-sign class="int-sign" value="plusmin">&pm;</button>
+            <button data-equal class="equal-sign" value="=">=</button>
         </div>
     </div>  
 <script></script>
