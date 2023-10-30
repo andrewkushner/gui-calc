@@ -13,20 +13,19 @@ class Calculator {
         this.operation = undefined;
     }
 
-    // Appends input numbers, validating for . before operating
+    // Appends input numbers, validating for decimal place before operating
     appendNumber(number){
-        // // If there is a decimal in place, don't add a second decimal
+        // If there is a decimal in place, don't add a second decimal
         if (number === '.' && this.calculatorCurrent.includes('.')) return
+        // Check current value for appending numbers
         if (this.calculatorCurrent === undefined){
             this.calculatorCurrent = 0;
-            console.log('yes');
         }
         else if (this.calculatorCurrent === 0){
             this.calculatorCurrent = number.toString();
         }
         else {
             this.calculatorCurrent = this.calculatorCurrent.toString() + number.toString();
-            console.log('no');
         }
     }
 
