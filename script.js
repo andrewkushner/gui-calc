@@ -16,8 +16,7 @@ class Calculator {
     // Appends input numbers, validating for . before operating
     appendNumber(number){
         // // If there is a decimal in place, don't add a second decimal
-        // if (number === '.' && this.calculatorCurrent.includes('.')) return
-        // this.calculatorCurrent = number.toString();
+        if (number === '.' && this.calculatorCurrent.includes('.')) return
         if (this.calculatorCurrent === undefined){
             this.calculatorCurrent = 0;
             console.log('yes');
