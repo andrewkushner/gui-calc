@@ -15,9 +15,20 @@ class Calculator {
 
     // Appends input numbers, validating for . before operating
     appendNumber(number){
-        if (number === '.' && this.calculatorCurrent.includes('.')) return
-        this.calculatorCurrent = number.toString();
-
+        // // If there is a decimal in place, don't add a second decimal
+        // if (number === '.' && this.calculatorCurrent.includes('.')) return
+        // this.calculatorCurrent = number.toString();
+        if (this.calculatorCurrent === undefined){
+            this.calculatorCurrent = 0;
+            console.log('yes');
+        }
+        else if (this.calculatorCurrent === 0){
+            this.calculatorCurrent = number.toString();
+        }
+        else {
+            this.calculatorCurrent = this.calculatorCurrent.toString() + number.toString();
+            console.log('no');
+        }
     }
 
     refresh(){
