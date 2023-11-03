@@ -34,7 +34,7 @@ class Calculator {
         this.prevCalcText.innerText = this.previousOperand;
     }
 
-    operation(operation){
+    operate(operation){
         if (this.currentOperand === '') return
         this.operation = operation;
         this.previousOperand = this.currentOperand;
@@ -69,7 +69,7 @@ numberButtons.forEach(button => {
 
 operationButtons.forEach(button => {
     button.addEventListener('click', () =>{
-        calculator.operation(button.innerText);
+        calculator.operate(button.innerText);
         calculator.refresh();
     });
 });
