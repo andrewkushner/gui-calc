@@ -8,8 +8,11 @@ class Calculator {
     
     // Clears all values from the calculator and sets default
     clear(){
+        this.calculatorCurrent = '';
         this.currentOperand = '';
         this.previousOperand = '';
+        this.currCalcText.innerText = '';
+        this.prevCalcText.innerText = '';
         this.operation = undefined;
     }
 
@@ -17,28 +20,84 @@ class Calculator {
     appendNumber(number){
         // If there is a decimal in place, don't add a second decimal
         if (number === '.' && this.calculatorCurrent.includes('.')) return
-        // Check current value for appending numbers
-        if (this.calculatorCurrent === undefined){
-            this.calculatorCurrent = 0;
-        }
-        else if (this.calculatorCurrent === 0){
-            this.calculatorCurrent = number.toString();
+        if (operatorExists === 1){
+            let mathInputTwo = number.toString();
         }
         else {
-            this.calculatorCurrent = this.calculatorCurrent.toString() + number.toString();
-        }
+            // Check current value for appending numbers
+            if (this.calculatorCurrent === undefined){
+                this.calculatorCurrent = 0;
+            }
+            else if (this.calculatorCurrent === 0){
+                this.calculatorCurrent = number.toString();
+            }
+            else {
+                this.calculatorCurrent = this.calculatorCurrent.toString() + number.toString();
+            }
+        }  
     }
 
     refresh(){
+        // On input update the display
         this.currCalcText.innerText = this.calculatorCurrent;
         this.prevCalcText.innerText = this.previousOperand;
     }
 
     operate(operation){
-        if (this.currentOperand === '') return
+        // If operator is blank do nothing
+        if (this.currentOperand.innerText === '') return
+
         this.operation = operation;
-        this.previousOperand = this.currentOperand;
-        this.currentOperand = '';
+        let mathInputOne = this.calculatorCurrent;
+        let mathOperation = this.operation;
+
+        console.log(mathOperation);
+        console.log('math operation: ' + this.calculatorCurrent);
+
+        // If operation exists in string, do not add more.
+        if (mathOperation === '×' && this.calculatorCurrent.includes('×')){
+            operatorExists = 1;
+            return
+        }
+        if (mathOperation === '-' && this.calculatorCurrent.includes('-')){
+            operatorExists = 1;
+            return
+        }
+        if (mathOperation === '+' && this.calculatorCurrent.includes('+')){
+            operatorExists = 1;
+            return
+        }
+        if (mathOperation === '÷' && this.calculatorCurrent.includes('÷')){
+            operatorExists = 1;
+            return
+        }
+
+        // If no operator, add it and set exists to 1
+        if (operatorExists === 0){
+            this.calculatorCurrent = mathInputOne + mathOperation;
+            operatorExists = 1;
+        }
+        else {
+            return
+        }
+    }
+
+    equals(mathInputOne, mathOperation, mathInputTwo){
+        let mathResult = 0;
+
+        if (mathOperation === 'x'){
+            mathResult = mathInputOne * mathInputTwo;
+        }
+        else if (mathOperation === '-'){
+            mathResult = mathInputOne - mathInputTwo;
+        }
+        else if (mathOperation === '+'){
+            mathResult = mathInputOne + mathInputTwo;
+        }
+        else if (mathOperation === '/'){
+            mathResult = mathInputOne / mathInputTwo;
+        }
+        return mathResult;
     }
 }
 
@@ -60,10 +119,14 @@ const currCalcText = document.querySelector('[data-calc-current]');
 
 const calculator = new Calculator(prevCalcText, currCalcText);
 
+// Operator check value
+let operatorExists = 0;
+
 // const displayWidth = document.getElementById('display');
 // console.log(window.getComputedStyle(displayWidth).width);
 
 
+// Button events on click based on type of button
 numberButtons.forEach(button => {
     button.addEventListener('click', () =>{
         calculator.appendNumber(button.innerText);
@@ -77,3 +140,8 @@ operationButtons.forEach(button => {
         calculator.refresh();
     });
 });
+
+allClearButton.addEventListener('click', button => {
+    calculator.clear();
+    calculator.refresh();
+})
