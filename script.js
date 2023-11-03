@@ -60,6 +60,10 @@ const currCalcText = document.querySelector('[data-calc-current]');
 
 const calculator = new Calculator(prevCalcText, currCalcText);
 
+// const displayWidth = document.getElementById('display');
+// console.log(window.getComputedStyle(displayWidth).width);
+
+
 numberButtons.forEach(button => {
     button.addEventListener('click', () =>{
         calculator.appendNumber(button.innerText);
