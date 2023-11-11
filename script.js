@@ -22,6 +22,12 @@ class Calculator {
         if (number === '.' && this.calculatorCurrent.includes('.')) return
         if (operatorExists === 1){
             let mathInputTwo = number.toString();
+            if (this.calculatorCurrent === 0){
+                this.calculatorCurrent = number.toString();
+            }
+            else {
+                this.calculatorCurrent = this.calculatorCurrent.toString() + number.toString();
+            }
         }
         else {
             // Check current value for appending numbers
@@ -48,11 +54,8 @@ class Calculator {
         if (this.currentOperand.innerText === '') return
 
         this.operation = operation;
-        let mathInputOne = this.calculatorCurrent;
-        let mathOperation = this.operation;
-
-        console.log(mathOperation);
-        console.log('math operation: ' + this.calculatorCurrent);
+        mathInputOne = parseInt(this.calculatorCurrent);
+        mathOperation = this.operation;
 
         // If operation exists in string, do not add more.
         if (mathOperation === '×' && this.calculatorCurrent.includes('×')){
@@ -85,17 +88,39 @@ class Calculator {
     equals(mathInputOne, mathOperation, mathInputTwo){
         let mathResult = 0;
 
+        console.log(parseInt(mathInputOne) + 'math1');
+        console.log(mathOperation + 'op1');
+        console.log(parseInt(mathInputTwo) + 'math2');
+
+
         if (mathOperation === 'x'){
             mathResult = mathInputOne * mathInputTwo;
+            mathInputOne = mathInputTwo;
+            mathInputTwo = 0;
+            this.prevCalcText = mathResult.toString();
+            this.currCalcText = mathResult;
         }
         else if (mathOperation === '-'){
             mathResult = mathInputOne - mathInputTwo;
+            mathInputOne = mathInputTwo;
+            mathInputTwo = 0;      
+            this.prevCalcText = mathResult.toString();      
+            this.currCalcText = mathResult;
         }
         else if (mathOperation === '+'){
             mathResult = mathInputOne + mathInputTwo;
+            mathInputOne = mathInputTwo;
+            mathInputTwo = 0;
+            this.prevCalcText = mathResult.toString();
+            this.currCalcText = mathResult;
+            console.log('fuck');
         }
         else if (mathOperation === '/'){
             mathResult = mathInputOne / mathInputTwo;
+            mathInputOne = mathInputTwo;
+            mathInputTwo = 0;
+            this.prevCalcText = mathResult.toString();
+            this.currCalcText = mathResult;
         }
         return mathResult;
     }
@@ -121,6 +146,9 @@ const calculator = new Calculator(prevCalcText, currCalcText);
 
 // Operator check value
 let operatorExists = 0;
+let mathInputOne = 0;
+let mathInputTwo = 0;
+let mathOperation = '';
 
 // const displayWidth = document.getElementById('display');
 // console.log(window.getComputedStyle(displayWidth).width);
@@ -143,5 +171,10 @@ operationButtons.forEach(button => {
 
 allClearButton.addEventListener('click', button => {
     calculator.clear();
+    calculator.refresh();
+})
+
+equalsButton.addEventListener('click', button => {
+    calculator.equals();
     calculator.refresh();
 })
